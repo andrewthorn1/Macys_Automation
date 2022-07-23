@@ -41,6 +41,10 @@ class SeleniumBase:
     def get_text_from_webelements(self, elements: List[WebElement]) -> List[str]:
         return [element.text for element in elements]
 
+    def get_text_from_webelement(self, find_by: str, locator: str ) -> str:
+        element = self.is_present(find_by, locator)
+        return element.text
+
     def get_element_by_text(self, elements: List[WebElement], name: str) -> WebElement:
         name = name.lower()
         return [element for element in elements if element.text.lower() == name][0]
