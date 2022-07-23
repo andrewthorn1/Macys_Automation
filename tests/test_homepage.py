@@ -14,16 +14,11 @@ class TestHomepage:
         expected_links = homepage_nav.NAV_LINK_TEXT
         assert expected_links == actual_links, 'Validating Header Nav Links Text'
 
-        # elements = homepage_nav.get_nav_links()
-        # for element in elements:
-        #     element.click()
-        #     homepage_nav.driver.delete_all_cookies()
-        #     time.sleep(3)
 
-        # for indx in range(12):
+        # for indx in range(13):
         #     homepage_nav.get_nav_links()[indx].click()
-        #     homepage_nav.driver.delete_all_cookies()
-        #     time.sleep(5)
+        #     homepage_nav.driver.delete_cookie('ak_bmsc')
+
 
 
 
