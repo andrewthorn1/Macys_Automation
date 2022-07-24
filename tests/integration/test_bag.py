@@ -2,6 +2,7 @@ import pytest
 from pom.search_nav import SearchNav
 from pom.homepage_nav import HomepageNav
 
+
 @pytest.mark.usefixtures('setup')
 class TestBag:
 

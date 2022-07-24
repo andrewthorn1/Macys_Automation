@@ -15,7 +15,8 @@ class HomepageNav(SeleniumBase):
         self.driver = driver
         self.__nav_links: str = '#mainNavigationFobs>li'
         self.__search_locator: str = '//*[@id="globalSearchInputField"]'
-        self.NAV_LINK_TEXT = 'Women,Men,Beauty,Home,Furniture,Shoes,Handbags,Jewelry,Kids,Toys,Gifts,Own Your Style,Sale'
+        self.NAV_LINK_TEXT = 'Women,Men,Beauty,Home,Furniture,Shoes,Handbags,Jewelry,' \
+                             'Kids,Toys,Gifts,Own Your Style,Sale'
 
     def get_nav_links(self) -> List[WebElement]:
         return self.are_visible('css', self.__nav_links, 'Header Navigation Links')
