@@ -1,9 +1,6 @@
-import time
-
 import pytest
-from pom.search_nav import SearchNav
 from pom.homepage_nav import HomepageNav
-from selenium.webdriver import Keys
+
 
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
