@@ -1,5 +1,3 @@
-import time
-
 import pytest
 from pom.search_nav import SearchNav
 from pom.homepage_nav import HomepageNav
@@ -15,7 +13,6 @@ class TestSearch:
         search_nav = SearchNav(self.driver)
         search_first_item = search_nav.get_first_item()
         assert search_first_item is not None
-        # print(search_first_item.text)
 
     def test_search_not_found(self):
         homepage_nav = HomepageNav(self.driver)
