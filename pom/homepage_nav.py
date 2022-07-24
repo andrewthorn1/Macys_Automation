@@ -2,6 +2,10 @@ from base.seleniumbase import SeleniumBase
 from selenium.webdriver.remote.webelement import WebElement
 from typing import List
 from base.utils import Utils
+from selenium.webdriver.common.keys import Keys
+import time
+
+from pom.search_nav import SearchNav
 
 
 class HomepageNav(SeleniumBase):
@@ -27,5 +31,15 @@ class HomepageNav(SeleniumBase):
 
     def get_search(self) -> WebElement:
         return self.is_visible('xpath', self.__search_locator, 'Search')
+
+    def go_to_item_page(self):
+        self.get_search().send_keys('Men shoes')
+        self.get_search().send_keys(Keys.RETURN)
+        search_nav = SearchNav(self.driver)
+        search_nav.get_first_item().click()
+        time.sleep(1)
+        search_nav.driver.delete_all_cookies()
+        search_nav.driver.refresh()
+        time.sleep(3)
 
 
