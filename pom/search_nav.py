@@ -10,6 +10,7 @@ class SearchNav(SeleniumBase):
         self.__first_item_locator: str = '//*[@class="cell"]//*//li'
         self.__add_to_bag_locator: str = '//*[@data-auto="add-to-bag"]'
         self.__check_size_9_locator: str = '//span[contains(text(),"9M")]'
+        self.__check_size_12_locator: str = '//span[contains(text(),"12M")]'
         self.__notification_message_locator: str = '//*[@class="notification-body"]'
         self.__not_found_message_locator: str = '//*[@id="resultsFoundMessage"]'
 
@@ -27,5 +28,8 @@ class SearchNav(SeleniumBase):
 
     def get_size_9_button(self) -> WebElement:
         return self.is_visible('xpath', self.__check_size_9_locator)
+
+    def get_size_12_button(self) -> WebElement:
+        return self.is_visible('xpath', self.__check_size_12_locator)
 
 

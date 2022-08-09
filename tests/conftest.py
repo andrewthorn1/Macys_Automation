@@ -1,7 +1,10 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options as chrome_options
+import os
 
+TEST_ENVIRONMENT = os.environ.get('TEST_ENVIRONMENT')
 
 @pytest.fixture
 def get_chrome_options():
@@ -14,9 +17,13 @@ def get_chrome_options():
 
 @pytest.fixture
 def get_webdriver(get_chrome_options):
-    options = get_chrome_options
-    chrome_driver_path = "C:\Program Files\Chrome driver\chromedriver.exe"
-    driver = webdriver.Chrome(options=options, executable_path=chrome_driver_path)
+    if TEST_ENVIRONMENT == 'docker':
+        # driver = webdriver.Remote("http://browser:4444/wd/hub", DesiredCapabilities.FIREFOX)
+        driver = webdriver.Remote("http://selenium:4444/wd/hub", DesiredCapabilities.CHROME)
+    else:
+        options = get_chrome_options
+        chrome_driver_path = "C:\Program Files\Chrome driver\chromedriver.exe"
+        driver = webdriver.Chrome(options=options, executable_path=chrome_driver_path)
     return driver
 
 
