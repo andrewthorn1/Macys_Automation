@@ -18,7 +18,10 @@ class TestBag:
         homepage_nav = HomepageNav(self.driver)
         homepage_nav.go_to_item_page()
         search_nav = SearchNav(self.driver)
-        time.sleep(3)
-        search_nav.get_size_9_button().click()
+        # time.sleep(3)
+        search_nav.get_size_button().click()
         search_nav.get_add_to_bag_button().click()
-        assert 'Please select a size.' not in search_nav.get_notification_message().text
+
+        assert 'Please try again, a technical issue occurred. ' \
+               'If you continue to experience difficulties you' \
+               ' can order by phone at 1-800-289-6229.' in search_nav.get_notification_message().text
