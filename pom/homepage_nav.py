@@ -15,6 +15,7 @@ class HomepageNav(SeleniumBase):
         self.driver = driver
         self.__nav_links: str = '#mainNavigationFobs>li'
         self.__search_locator: str = '//*[@id="globalSearchInputField"]'
+        self.__sign_in_locator: str = 'Sign In'
         self.NAV_LINK_TEXT = 'Women,Men,Kids,Home,Beauty,Shoes,Handbags,Jewelry,' \
                              'Furniture,Toys,Gifts,Own Your Style,Sale'
 
@@ -42,5 +43,8 @@ class HomepageNav(SeleniumBase):
         search_nav.driver.delete_all_cookies()
         search_nav.driver.refresh()
         time.sleep(3)
+
+    def get_login(self) -> WebElement:
+        return self.is_visible('link_text', self.__sign_in_locator, 'Sign In')
 
 

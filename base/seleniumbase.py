@@ -54,5 +54,6 @@ class SeleniumBase:
         name = name.lower()
         return [element for element in elements if element.text.lower() == name][0]
 
-
+    def delete_all_cookies(self):
+        return self.driver.delete_all_cookies()
 
