@@ -10,6 +10,7 @@ TEST_ENVIRONMENT = os.environ.get('TEST_ENVIRONMENT')
 def get_chrome_options():
     options = chrome_options()
     options.add_argument('chrome')  # Use headless if you don't need a browser UI
+    options.add_experimental_option('excludeSwitches', ['enable-logging']) #make report without 'DevTools listening on ws://127.0.0.1:...'
     options.add_argument('--start-maximized')
     options.add_argument('--window-size=1650,900')
     return options
